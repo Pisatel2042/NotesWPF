@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListView ItemsSource="{}">
+        <ListView ItemsSource="{Binding tasks_Notes}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Id}"/>

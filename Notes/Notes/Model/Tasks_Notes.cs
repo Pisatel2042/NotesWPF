@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes.Model
 {
-    public class Tasks
+    public class Tasks_Notes
     {
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
