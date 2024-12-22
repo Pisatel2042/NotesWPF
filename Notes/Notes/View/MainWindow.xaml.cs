@@ -26,5 +26,10 @@ namespace Notes
             InitializeComponent();
             DataContext = new MainViewModel();
         }
+
+        private void Add_Button_Click()
+        {
+
+        }
     }
 }
