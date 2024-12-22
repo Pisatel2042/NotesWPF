@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Notes.Model;
 using Oracle.ManagedDataAccess.Client;
+using System.Collections.Generic;
 
 namespace Notes.ViewModel
 {
@@ -37,20 +38,21 @@ namespace Notes.ViewModel
 
         public void LoadTasks()
         {
-           
 
-            string connectionString = "Server =DESKTOP-2LQI6HI; DateBase= Dummy; Trusted_Connection=True";
+            var taskMotes = new List<Tasks_Notes>();
+
+            string connectionString = "User Id=SYS;Password=1111;Data Source=//localhost:1521/orcl;DBA Privilege=SYSDBA;";
 
             using (var connection = new OracleConnection(connectionString))
             {
                 connection.Open();
-                using (var command = new OracleCommand("Select * from Dummy",connection)) 
+                using (var command = new OracleCommand("Select * from timeevents", connection)) 
                 {
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            tasks_Notes.Add(new Tasks_Notes
+                            taskMotes.Add(new Tasks_Notes
                             {
                                 Id = reader.GetInt32(0),
                                 DateTime = reader.GetDateTime(1),

@@ -5,17 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Notes" Height="450" Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding tasks_Notes}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding DateTime}"/>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Number}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid ItemsSource="{Binding taskMotes}" AutoGenerateColumns="True" />
     </Grid>
 </Window>
