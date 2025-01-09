@@ -44,6 +44,44 @@ namespace Notes
 
             return tasks_notes;
         }
+        public void AddTask(Tasks_Notes tasks_notes)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                using (OracleCommand command = new OracleCommand("insert into timeevents (datetime,name,countnumber) values (:datetime, :name, :number)", connection))
+                {
+                    command.Parameters.Add("datetime", tasks_notes.DateTime);
+                    command.Parameters.Add("name", tasks_notes.Name);
+                    command.Parameters.Add("number", tasks_notes.Number);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public void UpdateTask(Tasks_Notes tasks_notes)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                using (OracleCommand command = new OracleCommand("update timeevents set datetime = :datetime, name = :name, countnumber = :number WHERE id = :id", connection))
+                {
+                    command.Parameters.Add("id", tasks_notes.Id);
+                    command.Parameters.Add("datetime", tasks_notes.DateTime);
+                    command.Parameters.Add("name", tasks_notes.Name);
+                    command.Parameters.Add("number", tasks_notes.Number);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public void DeleteTask(Tasks_Notes tasks_notes)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                using (OracleCommand command = new OracleCommand("delete from timeevents where id = :id", connection))
+                {
+                    command.Parameters.Add("id", tasks_notes.Id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 
 }

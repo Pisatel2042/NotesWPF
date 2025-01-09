@@ -24,10 +24,13 @@ namespace Notes
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext  = new MainViewModel();
+            DBContext dBContext = new DBContext("User  Id=sys;Password=1111;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));DBA Privilege=SYSDBA");
+            MainDataGrid.ItemsSource = dBContext.GetTask();
+
         }
 
-        private void Add_Button_Click()
+        private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
