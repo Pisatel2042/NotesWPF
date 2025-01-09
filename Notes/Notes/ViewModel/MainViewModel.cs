@@ -20,7 +20,7 @@ namespace Notes.ViewModel
 
         public MainViewModel()
         {
-            string connectionString = "User Id=;Password=1111;Data Source=//localhost:1521/orcl;DBA Privilege=SYSDBA"; 
+            string connectionString = "Data Source= (DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-2LQI6HI)(PORT = 1521)) (CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = XE)));Password=1111;User ID=C##new_user"; 
             dBContext = new DBContext(connectionString);
             Task_Note = new ObservableCollection<Tasks_Notes>();
            LoadTask();
