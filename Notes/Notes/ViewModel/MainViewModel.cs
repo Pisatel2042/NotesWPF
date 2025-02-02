@@ -20,7 +20,7 @@ namespace Notes.ViewModel
 
         public MainViewModel()
         {
-            string connectionString = "Data Source= (DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-2LQI6HI)(PORT = 1521)) (CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = XE)));Password=1111;User ID=C##new_user"; 
+            string connectionString = "Data Source=  (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED) (SERVICE_NAME = orcl)));Password=1111; User ID=C##New_user ;";    
             dBContext = new DBContext(connectionString);
             Task_Note = new ObservableCollection<Tasks_Notes>();
            LoadTask();
@@ -31,11 +31,7 @@ namespace Notes.ViewModel
 
         private void LoadTask()
         {
-            var task = dBContext.GetTask();
-            foreach (var _task in task)
-            {
-                Task_Note.Add(_task);
-            }
+            
         }
         private void AddTask()
         {

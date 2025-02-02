@@ -1,4 +1,5 @@
 ﻿using Notes.Model;
+using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Notes
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
                 connection.Open();
-                using (OracleCommand command = new OracleCommand("select ID,datetime, Name , SNUMBER from C##New_user.timeevents", connection))
+                using (OracleCommand command = new OracleCommand("select XSD_ID, CREATEDATE, FILENAME , ISDEFAULT from ok_loader.t01_xsdshemafile", connection))
                 {
                     using (OracleDataReader reader = command.ExecuteReader())
                     {
